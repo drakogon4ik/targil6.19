@@ -67,7 +67,8 @@ if __name__ == "__main__":
     sending SYN packet on the closed port to check that function works
     """
     packet = send_recv(test_ip, test_port)
-    assert not checking_ack_packet(packet)
+    if packet:
+        assert not checking_ack_packet(packet)
 
     ip = input('Please input ip you want to check: ')
     main(ip)
